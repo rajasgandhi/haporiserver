@@ -5,6 +5,8 @@ var path = require("path");
 
 var app = express();
 
+var PORT = process.env.PORT || 3000;
+
 let posts = []
 
 app.use(
@@ -35,4 +37,4 @@ app.post("/sendpost", function (request, response) {
   response.send("Posts updated!");
 });
 
-app.listen(process.env.PORT || 3000, () => console.log(`app listening on port ${PORT}!`));
+app.listen(PORT, () => console.log(`app listening on port ${PORT}!`));
