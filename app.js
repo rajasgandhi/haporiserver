@@ -6,7 +6,6 @@ var path = require("path");
 var app = express();
 
 var PORT = process.env.PORT || 3000;
-var host = "";
 
 let posts = []
 
@@ -38,9 +37,4 @@ app.post("/sendpost", function (request, response) {
   response.send("Posts updated!");
 });
 
-if(process.env.NODE_ENV.toLowerCase() == 'development') {
-  host = "192.168.1.18";
-} else {
-  host = "haporiserver.herokuapp.com";
-}
-app.listen(PORT, host, () => console.log(`app listening on port ${PORT}!`));
+app.listen(PORT, () => console.log(`app listening on port ${PORT}!`));
