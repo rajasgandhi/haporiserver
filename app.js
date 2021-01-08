@@ -8,33 +8,30 @@ var PORT = process.env.PORT || 3000;
 
 let posts = [];
 
-/*app.use(
+app.use(
   session({
     secret: "secret",
     resave: true,
     saveUninitialized: true,
   })
-);*/
+);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.get("/", function (request, response) {
+app.get("/", (req, res) => {
   response.send("Please use /getposts or /sendpost!");
 });
 
-app.get("/getposts", function (request, response) {
-  response.send(posts);
-  response.end();
+app.get("/getposts", (req, res) => {
+  res.send(posts);
+  res.end();
 });
 
-app.post("/sendpost", function (request, response) {
-  const post = request.body;
-  console.log(post.title);
-  posts.unshift(post);
-  //Array.prototype.reverse(posts);
-  //console.log(posts);
-  response.send("Posts updated!");
+app.post("/sendpost",  (req, res) => {
+  posts.unshift(req.body);
+  console.log(posts);
+  res.sendStatus(200);
 });
 
 app.listen(PORT, () => console.log(`app listening on port ${PORT}!`));
