@@ -6,7 +6,7 @@ var app = express();
 
 var PORT = process.env.PORT || 3000;
 
-let posts = []
+let posts = [];
 
 /*app.use(
   session({
@@ -15,7 +15,6 @@ let posts = []
     saveUninitialized: true,
   })
 );*/
-
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -34,7 +33,7 @@ app.post("/sendpost", function (request, response) {
   console.log(post.title);
   posts.unshift(post);
   //Array.prototype.reverse(posts);
-  console.log(posts);
+  //console.log(posts);
   response.send("Posts updated!");
 });
 
