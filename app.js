@@ -8,16 +8,17 @@ var PORT = process.env.PORT || 3000;
 
 let posts = []
 
-app.use(
+/*app.use(
   session({
     secret: "secret",
     resave: true,
     saveUninitialized: true,
   })
-);
+);*/
 
-app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get("/", function (request, response) {
   response.send("Please use /getposts or /sendpost!");
@@ -32,7 +33,7 @@ app.post("/sendpost", function (request, response) {
   const post = request.body;
   console.log(post.title);
   posts.unshift(post);
-  Array.prototype.reverse(posts);
+  //Array.prototype.reverse(posts);
   console.log(posts);
   response.send("Posts updated!");
 });
