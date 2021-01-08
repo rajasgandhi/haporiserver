@@ -30,7 +30,7 @@ app.get("/getposts", function (request, response) {
 
 app.post("/sendpost", function (request, response) {
   const post = request.body;
-  console.log(post);
+  console.log(post.title);
   posts.unshift(post);
   Array.prototype.reverse(posts);
   console.log(posts);
