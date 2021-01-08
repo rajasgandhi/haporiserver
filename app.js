@@ -1,7 +1,6 @@
 var express = require("express");
 var session = require("express-session");
 var bodyParser = require("body-parser");
-var path = require("path");
 
 var app = express();
 
@@ -34,6 +33,7 @@ app.post("/sendpost", function (request, response) {
   console.log(post);
   posts.unshift(post);
   Array.prototype.reverse(posts);
+  console.log(posts);
   response.send("Posts updated!");
 });
 
