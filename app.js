@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get("/", (req, res) => {
-  response.send("Please use /getposts or /sendpost!");
+  res.send("Please use /getposts or /sendpost!");
 });
 
 app.get("/getposts", (req, res) => {
